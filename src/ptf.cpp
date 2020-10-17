@@ -12,12 +12,12 @@
 using namespace std;
 
 void ParticleFilter::init(double x, double y, double theta, double std[]) {
-	// Set the number of particles. Initialize all particles to first position (based on estimates of
-	//   x, y, theta and their uncertainties from GPS) and all weights to 1. 
+	// Set how many particle you would use to describe the target function. Initialize all particles to first position being the ground truth data
+	// (x, y, theta and their uncertainties coming from GPS) and set all weights to 1. 
 	// Add random Gaussian noise to each particle.
-	// NOTE: Consult particle_filter.h for more information about this method (and others in this file).
+	// NOTE: Refer ptf.h for more information about the methods assosiated with particle class (and others in this file).
 
-    num_particles = 729; //set to number of files in observation directory
+    num_particles = 2444; //set to number of files in observation directory
 
     weights.resize(num_particles);
     particles.resize(num_particles);
@@ -34,7 +34,7 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
 
     default_random_engine gen; //http://www.cplusplus.com/reference/random/default_random_engine/
 
-    // create particles and set their values
+    // generate particles and set their values
     for(int i=0; i<num_particles; ++i){
         Particle p;
         p.id = i;

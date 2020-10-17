@@ -13,7 +13,7 @@
 #include "map.h"
 
 /*
- * Struct representing one position/control measurement.
+ * Struct representing control  measurement from the robot sensor.
  */
 struct control_s {
 	
@@ -22,7 +22,7 @@ struct control_s {
 };
 
 /*
- * Struct representing one ground truth position.
+ * Struct representing one ground truth value robots/vehicle's position in x,y and theta.
  */
 struct ground_truth {
 	
@@ -42,10 +42,10 @@ struct LandmarkObs {
 };
 
 /*
- * Computes the Euclidean distance between two 2D points.
+ * Calculates Euclidean distance between two points in the 2D space.
  * @param (x1,y1) x and y coordinates of first point
  * @param (x2,y2) x and y coordinates of second point
- * @output Euclidean distance between two 2D points
+ * @outputs Euclidean distance between two points
  */
 inline double dist(double x1, double y1, double x2, double y2) {
 	return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
@@ -187,7 +187,7 @@ inline bool read_gt_data(std::string filename, std::vector<ground_truth>& gt) {
 		single_gt.y = y;
 		single_gt.theta = azimuth;
 
-		// Add to list of control measurements and ground truth:
+		// Add to list of  ground truth:
 		gt.push_back(single_gt);
 	}
 	return true;
@@ -199,7 +199,7 @@ inline bool read_gt_data(std::string filename, std::vector<ground_truth>& gt) {
  */
 inline bool read_landmark_data(std::string filename, std::vector<LandmarkObs>& observations) {
 
-	// Get file of landmark measurements:
+	
 	std::ifstream in_file_obs(filename.c_str(),std::ifstream::in);
 	// Return if we can't open the file.
 	if (!in_file_obs) {
@@ -228,7 +228,7 @@ inline bool read_landmark_data(std::string filename, std::vector<LandmarkObs>& o
 		meas.x = local_x;
 		meas.y = local_y;
 
-		// Add to list of control measurements:
+		// Add to list of observation measurements:
 		observations.push_back(meas);
 	}
 	return true;
