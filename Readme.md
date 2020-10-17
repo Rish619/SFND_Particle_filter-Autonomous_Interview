@@ -8,10 +8,6 @@ In this project we implement a 2 dimensional particle filter in C++. The particl
 The flowchart below should make the working of a Particle Filter a bit clearer.
 <img src="images/particle_filter_flowchart.png" width="700" height="400" />
 
-## Download the data folder and it should contain all the folders mention below use this link to download the data folder from the repository referred
-
-https://github.com/vatsl/ParticleFilter
-
 
 ## Inputs to the Particle Filter
 You can find the inputs to the particle filter in the `data` directory. 
