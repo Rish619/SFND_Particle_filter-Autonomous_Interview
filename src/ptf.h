@@ -9,7 +9,7 @@
 
 #include "helper.h"
 
-struct Particle {
+struct PARTICLE {
 
 	int id;
 	double x;
@@ -20,7 +20,7 @@ struct Particle {
 
 
 
-class ParticleFilter {
+class Particle_Filter {
 	
 	// Number of particles to draw
 	int num_particles; 
@@ -36,14 +36,14 @@ class ParticleFilter {
 public:
 	
 	// Set of current particles
-	std::vector<Particle> particles;
+	std::vector<PARTICLE> particles;
 
 	// Constructor
 	// @param M Number of particles
-	ParticleFilter() : num_particles(0), is_initialized(false) {}
+	Particle_Filter() : num_particles(0), is_initialized(false) {}
 
 	// Destructor
-	~ParticleFilter() {}
+	~Particle_Filter() {}
 
 	/**
 	 * init Initializes particle filter by initializing particles to Gaussian
@@ -73,7 +73,7 @@ public:
 	 * @param predicted Vector of predicted landmark observations
 	 * @param observations Vector of landmark observations
 	 */
-	void dataAssociation(std::vector<LandmarkObs> predicted, std::vector<LandmarkObs>& observations);
+	void data_association(std::vector<LandmarkObs> predicted, std::vector<LandmarkObs>& observations);
 	
 	/**
 	 * updateWeights Updates the weights for each particle based on the likelihood of the 
@@ -84,14 +84,14 @@ public:
 	 * @param observations Vector of landmark observations
 	 * @param map Map class containing map landmarks
 	 */
-	void updateWeights(double sensor_range, double std_landmark[], std::vector<LandmarkObs> observations,
+	void update_weights(double sensor_range, double std_landmark[], std::vector<LandmarkObs> observations,
 			Map map_landmarks);
 	
 	/**
 	 * resample Resamples from the updated set of particles to form
 	 *   the new set of particles.
 	 */
-	void resample();
+	void resampling();
 	
 	/*
 	 * write Writes particle positions to a file.

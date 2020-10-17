@@ -71,7 +71,7 @@ int main() {
 	
 	// Run particle filter!
 	int num_time_steps = position_meas.size();
-	ParticleFilter pf;
+	Particle_Filter pf;
 	double total_error[3] = {0,0,0};
 	double cum_mean_error[3] = {0,0,0};
 	
@@ -110,14 +110,14 @@ int main() {
 		}
 
 		// Update the weights and resample
-		pf.updateWeights(sensor_range, sigma_landmark, noisy_observations, map);
-		pf.resample();
+		pf.update_weights(sensor_range, sigma_landmark, noisy_observations, map);
+		pf.resampling();
 		
 		// Calculate and output the average weighted error of the particle filter over all time steps so far.
-		vector<Particle> particles = pf.particles;
+		vector<PARTICLE> particles = pf.particles;
 		int num_particles = particles.size();
 		double highest_weight = 0.0;
-		Particle best_particle;
+		PARTICLE best_particle;
 		for (int i = 0; i < num_particles; ++i) {
 			if (particles[i].weight > highest_weight) {
 				highest_weight = particles[i].weight;
