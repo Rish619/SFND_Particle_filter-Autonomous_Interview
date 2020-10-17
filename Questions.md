@@ -53,10 +53,15 @@ Q2) Explain the technique behind Hough Transforms. Where would this type of feat
 Ans2) Principle of Hough Transform : Equation of line is y = mx + a; so points lying on this line will satisfy the  equation; converting the xy space to Hough space formed by the constants of the line equation m and x, so number of lines intersecting and intersection signifies the probablity of line found and number of lines respectively.
 
 Left xy or image feature space and Right is Hough feature space : More the number of lines intersecting means more number of points sampled on a straight line; hence it makes it more certain that there is an edge or a straight line there.
+
 <img src="images/Hough_transform1.png" width="700" height="400" />
+
 Hough transform can also be performed with Polar representation of a line
+
 <img src="images/Hough_transform2.png" width="700" height="400" />
+
 Corresponding Hough feature space for the polar coordinate system : Number of extreme white colour coding spots represents number of lines found in an image, in this case four are found.
+
 <img src="images/Hough_transform3.png" width="700" height="400" />
 
 
