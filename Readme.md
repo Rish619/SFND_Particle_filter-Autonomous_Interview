@@ -6,7 +6,7 @@ In this project we implement a 2 dimensional particle filter in C++. The particl
 ## A high level view of Particle Filter used in the given  Scenario
 
 The flowchart below should make the working of a Particle Filter a bit clearer.
-<img src="particle_filter_flowchart.png" width="700" height="400" />
+<img src="images/particle_filter_flowchart.png" width="700" height="400" />
 
 
 ## Inputs to the Particle Filter
@@ -48,7 +48,7 @@ These files contain observation data for all "observable" landmarks. Here observ
 
 
 ## The method used for resampling 
-<img src="discrete_dist.png" width="700" height="400" />
+<img src="images/discrete_dist.png" width="700" height="400" />
 
 
 

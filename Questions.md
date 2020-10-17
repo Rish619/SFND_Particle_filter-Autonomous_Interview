@@ -26,12 +26,12 @@ SIFT: The SIFT method includes both a keypoint detector as well as  a descriptor
 
 *  keypoints are detected in the image using an approach called  "Laplacian-Of-Gaussian (LoG)“, which is based on second-degree intensity derivatives. The LoG is applied to various scale levels of the image and tends to detect blobs instead of corners. In addition to a unique scale level, keypoints are also assigned an orientation based on the intensity gradients in a local neighborhood around the keypoint.
 * for every keypoint, its surrounding area is transformed by removing the orientation and thus ensuring a canonical orientation. Also, the size of the area is resized to 16 x 16 pixels, providing a normalized patch.
-<img src="sift-1.jpg" width="700" height="400" />
+<img src="images/sift-1.jpg" width="700" height="400" />
 * the orientation and magnitude of each pixel within the normalized patch are computed based on the intensity gradients Ix and Iy.
 
 * the normalized patch is divided into a grid of 4 x 4 cells. Within each cell, the orientations of pixels which exceed a threshold of magnitude are collected in a histogram consisting of 8 bins.
-<img src="sift-2.jpg" width="700" height="400" />
-<img src="sift-3.jpg" width="700" height="400" />
+<img src="images/sift-2.jpg" width="700" height="400" />
+<img src="images/sift-3.jpg" width="700" height="400" />
 
 * the 8-bin histograms of all 16 cells are concatenated into a 128-dimensional vector (the descriptor) which is used to uniquely represent the keypoint.
 
@@ -43,7 +43,7 @@ SURF: Speeded Up Robust Features” which introduced a new algorithm called SURF
 
 In SIFT, Lowe approximated Laplacian of Gaussian with Difference of Gaussian for finding scale-space. SURF goes a little further and approximates LoG with Box Filter. Below image shows a demonstration of such an approximation. One big advantage of this approximation is that, convolution with box filter can be easily calculated with the help of integral images. And it can be done in parallel for different scales. Also the SURF rely on determinant of Hessian matrix for both scale and location.
 
-<img src="surf_boxfilter.jpg" width="700" height="400" />
+<img src="images/surf_boxfilter.jpg" width="700" height="400" />
 
       
 All of these could be used for generating key points/features in a camera frame, which further could be matched between two consecutive frames to get info like object displacment in space and time. Can also be used for tracking multiple objects using associativity  in time. Can also be used for image reconstruction or stiching based on these key point detections. 
@@ -53,11 +53,11 @@ Q2) Explain the technique behind Hough Transforms. Where would this type of feat
 Ans2) Principle of Hough Transform : Equation of line is y = mx + a; so points lying on this line will satisfy the  equation; converting the xy space to Hough space formed by the constants of the line equation m and x, so number of lines intersecting and intersection signifies the probablity of line found and number of lines respectively.
 
 Left xy or image feature space and Right is Hough feature space : More the number of lines intersecting means more number of points sampled on a straight line; hence it makes it more certain that there is an edge or a straight line there.
-<img src="Hough_transform1.png" width="700" height="400" />
+<img src="images/Hough_transform1.png" width="700" height="400" />
 Hough transform can also be performed with Polar representation of a line
-<img src="Hough_transform2.png" width="700" height="400" />
+<img src="images/Hough_transform2.png" width="700" height="400" />
 Corresponding Hough feature space for the polar coordinate system : Number of extreme white colour coding spots represents number of lines found in an image, in this case four are found.
-<img src="Hough_transform3.png" width="700" height="400" />
+<img src="images/Hough_transform3.png" width="700" height="400" />
 
 
 
@@ -86,9 +86,9 @@ For further implementation of updating weights of the particles between steps : 
 * However, in simple words, weight for any sample is directly proportional to the ratio between the target function at that point and the proposal function at the point. Moreover, when we consider the proposal function as the motion model, the weight is directly infered from the observation model. In the code implementation it is done  using Multivariate Gaussian Distribution(Proposal function). 
 
 ## Resampling methods/algorithms
-<img src="Resampling.png" width="700" height="400" />
+<img src="images/Resampling.png" width="700" height="400" />
 However, in the particle filter implementation, this is done by discrete distribution function in C++ with the help of default_random_engine. 
-<img src="discrete_dist.png" width="700" height="400" />
+<img src="images/discrete_dist.png" width="700" height="400" />
 
 
 
